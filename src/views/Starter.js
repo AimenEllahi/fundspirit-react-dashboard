@@ -1,8 +1,15 @@
 import { Col, Row } from "reactstrap";
 import SalesChart from "../components/dashboard/SalesChart";
 import TopCards from "../components/dashboard/TopCards";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { getCampaigns } from "../Actions/Campaigns";
 
 const Starter = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getCampaigns());
+  }, []);
   return (
     <div>
       {/***Top Cards***/}

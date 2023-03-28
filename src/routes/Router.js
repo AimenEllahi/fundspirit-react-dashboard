@@ -46,13 +46,19 @@ const ThemeRoutes = [
         element: <Campaigns />,
       },
       {
-        path: "/organization",
+        path: "/npos",
         exact: true,
         // element: user ? <Organization /> : <Navigate to='/signin' />,
         element: <Organization />,
       },
       {
-        path: "/createcampaign",
+        path: "/npos/request",
+        exact: true,
+        // element: user ? <Organization /> : <Navigate to='/signin' />,
+        element: <Organization />,
+      },
+      {
+        path: "/campaign/create",
         exact: true,
         // element: user ? <CreateCampaign /> : <Navigate to='/signin' />,
         element: <CreateCampaign />,

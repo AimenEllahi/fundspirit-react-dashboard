@@ -5,8 +5,7 @@ const API = axios.create({
   // baseURL: "https://tourism-app-backend-node.herokuapp.com/api",
 });
 
-export const fetchUsers = () =>
-  API.get("/users");
+export const fetchUsers = () => API.get("/users");
 
 // const token = localStorage.getItem("TourismSecurityTokenAdmin");
 
@@ -25,4 +24,8 @@ export const fetchUsers = () =>
 // export const signIn = (email, password) =>
 //   API.post("/users/login", { email, password });
 
+// For Campaigns
+export const fetchCampaigns = () => API.get("/campaigns");
 
+export const createCampaign = (formdata) =>
+  API.post("/campaigns/create", formdata);

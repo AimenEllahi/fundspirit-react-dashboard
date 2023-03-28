@@ -12,22 +12,34 @@ const navigation = [
     title: "Campaigns",
     href: "/campaigns",
     icon: "bi bi-people",
+    //not selectable
+
     subcategorycampaign: [
       {
+        title: "View",
+        href: "/campaigns",
+        icon: "bi bi-people",
+      },
+      {
         title: "Create",
-        href: "/createcampaign",
-        icon: "bi bi-create",
+        href: "/campaign/create",
+        icon: "bi bi-people",
       },
     ],
   },
   {
-    title: "Organizations",
-    href: "/organization",
+    title: "NPO's",
+    href: "/npos",
     icon: "bi bi-people",
     subcategoryorg: [
       {
+        title: "View",
+        href: "/npos",
+        icon: "bi bi-people",
+      },
+      {
         title: "Requests",
-        href: "/campaigns",
+        href: "/npos/request",
         icon: "bi bi-box-arrow-in-right",
       },
     ],
@@ -46,35 +58,40 @@ const Sidebar = () => {
   let location = useLocation();
 
   return (
-    <div className="p-1">
-      <div className="d-flex align-items-center">
+    <div className='p-1'>
+      <div className='d-flex align-items-center'>
         <Logo />
         <Button
           close
-          size="sm"
-          className="ms-auto d-lg-none"
+          size='sm'
+          className='ms-auto d-lg-none'
           onClick={() => showMobilemenu()}
         ></Button>
       </div>
-      <div className="pt-4 mt-2">
-        <Nav vertical className="sidebarNav">
+      <div className='pt-4 mt-2'>
+        <Nav vertical className='sidebarNav'>
           {navigation.map((navi, index) => (
-            <NavItem key={index} className="sidenav-bg">
+            <NavItem key={index} className='sidenav-bg'>
               <Link
                 to={navi.href}
                 className={
                   location.pathname === navi.href
-                    ? "text-primary nav-link py-3"
+                    ? "text-primary nav-link text-secondary py-3"
                     : "nav-link text-secondary py-3"
                 }
               >
                 <i className={navi.icon}></i>
-                <span className="ms-3 d-inline-block">{navi.title}</span>
-                {navi.subcategoryorg && ( 
-                  <i className="bi bi-chevron-right ms-auto">
-                    <ul className="sub-menu">
+                <span className='ms-3 d-inline-block'>{navi.title}</span>
+                {navi.subcategoryorg && (
+                  <i className='bi bi-chevron-right ms-auto'>
+                    <ul className='sub-menu'>
                       {navi.subcategoryorg.map((subnavi, index) => (
-                        <li key={index}>
+                        <li
+                          key={index}
+                          style={{
+                            listStyleType: "none",
+                          }}
+                        >
                           <Link
                             to={subnavi.href}
                             className={
@@ -84,7 +101,7 @@ const Sidebar = () => {
                             }
                           >
                             <i className={subnavi.icon}></i>
-                            <span className="ms-3 d-inline-block">
+                            <span className='ms-3 d-inline-block'>
                               {subnavi.title}
                             </span>
                           </Link>
@@ -94,13 +111,17 @@ const Sidebar = () => {
                   </i>
                 )}
                 {navi.subcategorycampaign && (
-                  <i className="bi bi-chevron-right ms-auto">
-                    <ul className="sub-menu">
+                  <i className='bi bi-chevron-right ms-auto'>
+                    <ul className='sub-menu'>
                       {navi.subcategorycampaign.map((subnavi, index) => (
-                        <li key={index}>
+                        <li
+                          key={index}
+                          style={{
+                            listStyleType: "none",
+                          }}
+                        >
                           <Link
-
-                            to={subnavi.href} 
+                            to={subnavi.href}
                             className={
                               location.pathname === subnavi.href
                                 ? "text-primary nav-link py-3"
@@ -108,7 +129,7 @@ const Sidebar = () => {
                             }
                           >
                             <i className={subnavi.icon}></i>
-                            <span className="ms-3 d-inline-block">
+                            <span className='ms-3 d-inline-block'>
                               {subnavi.title}
                             </span>
                           </Link>
