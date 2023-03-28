@@ -7,9 +7,13 @@ const FullLayout = lazy(() => import("../layouts/FullLayout.js"));
 /***** Pages ****/
 
 const Starter = lazy(() => import("../views/Starter.js"));
+const Campaigns = lazy(() => import("../views/ui/Campaigns.js"));
+const Organization = lazy(() => import("../views/ui/Organization.js"));
+const CreateCampaign = lazy(() => import("../views/ui/CreateCampaign.js"));
 // const Packages = lazy(() => import("../views/ui/Packages.js"));
 
 const Users = lazy(() => import("../components/dashboard/UserTable.js"));
+
 // const SignIn = lazy(() => import("../components/Auth/SignIn"));
 
 const user = localStorage.getItem("TourismSecurityTokenAdmin");
@@ -35,6 +39,24 @@ const ThemeRoutes = [
       //   // element: user ? <Packages /> : <Navigate to='/signin' />,
       //   element: <Packages />,
       // },
+      {
+        path: "/campaigns",
+        exact: true,
+        // element: user ? <Campaigns /> : <Navigate to='/signin' />,
+        element: <Campaigns />,
+      },
+      {
+        path: "/organization",
+        exact: true,
+        // element: user ? <Organization /> : <Navigate to='/signin' />,
+        element: <Organization />,
+      },
+      {
+        path: "/createcampaign",
+        exact: true,
+        // element: user ? <CreateCampaign /> : <Navigate to='/signin' />,
+        element: <CreateCampaign />,
+      },
       {
         path: "/about",
         exact: true,

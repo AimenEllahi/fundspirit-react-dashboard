@@ -8,7 +8,30 @@ const navigation = [
     href: "/starter",
     icon: "bi bi-speedometer2",
   },
-
+  {
+    title: "Campaigns",
+    href: "/campaigns",
+    icon: "bi bi-people",
+    subcategorycampaign: [
+      {
+        title: "Create",
+        href: "/createcampaign",
+        icon: "bi bi-create",
+      },
+    ],
+  },
+  {
+    title: "Organizations",
+    href: "/organization",
+    icon: "bi bi-people",
+    subcategoryorg: [
+      {
+        title: "Requests",
+        href: "/campaigns",
+        icon: "bi bi-box-arrow-in-right",
+      },
+    ],
+  },
   {
     title: "Users",
     href: "/about",
@@ -47,6 +70,53 @@ const Sidebar = () => {
               >
                 <i className={navi.icon}></i>
                 <span className="ms-3 d-inline-block">{navi.title}</span>
+                {navi.subcategoryorg && ( 
+                  <i className="bi bi-chevron-right ms-auto">
+                    <ul className="sub-menu">
+                      {navi.subcategoryorg.map((subnavi, index) => (
+                        <li key={index}>
+                          <Link
+                            to={subnavi.href}
+                            className={
+                              location.pathname === subnavi.href
+                                ? "text-primary nav-link py-3"
+                                : "nav-link text-secondary py-3"
+                            }
+                          >
+                            <i className={subnavi.icon}></i>
+                            <span className="ms-3 d-inline-block">
+                              {subnavi.title}
+                            </span>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </i>
+                )}
+                {navi.subcategorycampaign && (
+                  <i className="bi bi-chevron-right ms-auto">
+                    <ul className="sub-menu">
+                      {navi.subcategorycampaign.map((subnavi, index) => (
+                        <li key={index}>
+                          <Link
+
+                            to={subnavi.href} 
+                            className={
+                              location.pathname === subnavi.href
+                                ? "text-primary nav-link py-3"
+                                : "nav-link text-secondary py-3"
+                            }
+                          >
+                            <i className={subnavi.icon}></i>
+                            <span className="ms-3 d-inline-block">
+                              {subnavi.title}
+                            </span>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </i>
+                )}
               </Link>
             </NavItem>
           ))}
