@@ -10,6 +10,7 @@ const Starter = lazy(() => import("../views/Starter.js"));
 const Campaigns = lazy(() => import("../views/ui/Campaigns.js"));
 const Organization = lazy(() => import("../views/ui/Organization.js"));
 const CreateCampaign = lazy(() => import("../views/ui/CreateCampaign.js"));
+const OrgRequests = lazy(() => import("../views/ui/OrgRequests.js"));
 // const Packages = lazy(() => import("../views/ui/Packages.js"));
 
 const Users = lazy(() => import("../components/dashboard/UserTable.js"));
@@ -55,7 +56,7 @@ const ThemeRoutes = [
         path: "/npos/request",
         exact: true,
         // element: user ? <Organization /> : <Navigate to='/signin' />,
-        element: <Organization />,
+        element: <OrgRequests />,
       },
       {
         path: "/campaign/create",
