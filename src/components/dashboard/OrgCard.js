@@ -3,6 +3,11 @@ import React from 'react'
 import { Card, CardBody, CardTitle, CardText, CardImg, Button, Col, Row} from "reactstrap";
 
 function OrgCard() {
+    //navigation to npo/request
+    const viewOrg = () => {
+        window.location.href = "/npos/request";
+    }
+
     return (
             
             <Col md="3">
@@ -29,7 +34,8 @@ function OrgCard() {
                             <div style={{
                                 textAlign: "center"
                             }}>
-                                <Button style={{
+                                <Button onClick={viewOrg}
+                                 style={{
                                     width: "80%",
                                     marginTop: "10px",
                                     marginBottom: "10px"
