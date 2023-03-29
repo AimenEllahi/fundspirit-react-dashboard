@@ -1,11 +1,11 @@
 //to craete card to view organizaions
 import React from 'react'
-import { Card, CardBody, CardTitle, CardText, CardImg, Button, Col} from "reactstrap";
+import { Card, CardBody, CardTitle, CardText, CardImg, Button, Col, Row} from "reactstrap";
 
 function OrgCard() {
     return (
-        <div>
-           <Col md="3">
+            
+            <Col md="3">
                     <Card className="org-card">
                         <img style={{
                             width: "50%",
@@ -39,7 +39,6 @@ function OrgCard() {
                         </CardBody>
                     </Card>
             </Col>
-        </div>
 
   )
 }
