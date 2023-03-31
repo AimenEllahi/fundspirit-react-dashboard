@@ -13,7 +13,6 @@ function Organization() {
       <OrgCard />
       <OrgCard />
       <OrgCard />
-      
     </Row>  
   )
 }
