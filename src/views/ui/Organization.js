@@ -1,8 +1,19 @@
-import React from 'react'
+import React, {lazy} from 'react'
+import { Row} from "reactstrap";
+const OrgCard = lazy(() => import("../../components/dashboard/OrgCard.js"));
 
 function Organization() {
   return (
-    <div>Organization</div>
+   <Row classname="d-flex">
+      <OrgCard />
+      <OrgCard />
+      <OrgCard />
+      <OrgCard />
+      <OrgCard />
+      <OrgCard />
+      <OrgCard />
+      <OrgCard />
+    </Row>  
   )
 }
 
