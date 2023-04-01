@@ -4,11 +4,14 @@ import TopCards from "../components/dashboard/TopCards";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { getCampaigns } from "../Actions/Campaigns";
+import { getNPOs, getNPORequets } from "../Actions/NPOs";
 
 const Starter = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getCampaigns());
+    dispatch(getNPOs());
+    dispatch(getNPORequets());
   }, []);
   return (
     <div>

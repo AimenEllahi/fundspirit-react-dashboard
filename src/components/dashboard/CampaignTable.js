@@ -11,7 +11,6 @@ import { useSelector } from "react-redux";
 
 function CampaignTable() {
   const campaigns = useSelector((state) => state.Campaigns.campaigns);
-  console.log(campaigns);
 
   return (
     <>

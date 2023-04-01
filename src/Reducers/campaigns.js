@@ -1,8 +1,8 @@
-import { FETCH_ALL } from "../Constants/actionTypes";
+import { FETCH_ALL_CAMPAIGNS } from "../Constants/actionTypes";
 
 const reducer = (state = [], action) => {
   switch (action.type) {
-    case FETCH_ALL:
+    case FETCH_ALL_CAMPAIGNS:
       return {
         ...state,
         campaigns: action.payload,

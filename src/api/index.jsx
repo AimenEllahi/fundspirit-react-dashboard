@@ -29,3 +29,9 @@ export const fetchCampaigns = () => API.get("/campaigns");
 
 export const createCampaign = (formdata) =>
   API.post("/campaigns/create", formdata);
+
+//for Organizations
+export const fetchNPOs = () => API.get("/npos");
+export const fetchNPORequests = () => API.get("/npos/requests");
+export const fetchNPO = (id) => API.get("/npos/" + id);
+export const approveNPO = (id) => API.put("/npos/approve/" + id);
