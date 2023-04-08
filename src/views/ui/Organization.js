@@ -5,7 +5,6 @@ import { getNPOs } from "../../Actions/NPOs.js";
 const OrgCard = lazy(() => import("../../components/dashboard/OrgCard.js"));
 
 function Organization({ requests }) {
-  const dispatch = useDispatch();
   const selector = useSelector((state) => state.NPOs);
   const [npos, setNpos] = useState([]);
   const [npoRequests, setNpoRequests] = useState([]);
@@ -13,10 +12,11 @@ function Organization({ requests }) {
   useEffect(() => {
     if (requests) {
       setNpoRequests(selector.npoRequests);
+      console.log("Setting Requests");
     } else {
       setNpos(selector.npos);
     }
-  }, [window.location]);
+  });
 
   return (
     <Container>

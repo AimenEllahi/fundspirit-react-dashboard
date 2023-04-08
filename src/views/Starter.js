@@ -12,7 +12,7 @@ const Starter = () => {
     dispatch(getCampaigns());
     dispatch(getNPOs());
     dispatch(getNPORequets());
-  }, []);
+  });
   return (
     <div>
       {/***Top Cards***/}
