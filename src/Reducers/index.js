@@ -4,9 +4,11 @@ import { combineReducers } from "redux";
 import Users from "./users";
 import Campaigns from "./campaigns";
 import NPOs from "./npos";
+import Auth from "./auth";
 
 export default combineReducers({
   Users,
   Campaigns,
   NPOs,
+  Auth,
 });

@@ -15,9 +15,9 @@ const OrgRequests = lazy(() => import("../views/ui/OrgRequests.js"));
 
 const Users = lazy(() => import("../components/dashboard/UserTable.js"));
 
-// const SignIn = lazy(() => import("../components/Auth/SignIn"));
+const SignIn = lazy(() => import("../components/Auth/SignIn"));
 
-const user = localStorage.getItem("TourismSecurityTokenAdmin");
+const user = localStorage.getItem("FundSpiritSecurityTokenAdmin");
 
 /*****Routes******/
 
@@ -30,55 +30,46 @@ const ThemeRoutes = [
       {
         path: "/starter",
         exact: true,
-        // element: user ? <Starter /> : <Navigate to='/signin' />,
-        element: <Starter />,
+        element: user ? <Starter /> : <Navigate to='/signin' />,
       },
 
-      // {
-      //   path: "/packages",
-      //   exact: true,
-      //   // element: user ? <Packages /> : <Navigate to='/signin' />,
-      //   element: <Packages />,
-      // },
       {
         path: "/campaigns",
         exact: true,
-        // element: user ? <Campaigns /> : <Navigate to='/signin' />,
-        element: <Campaigns />,
+        element: user ? <Campaigns /> : <Navigate to='/signin' />,
       },
       {
         path: "/npos",
         exact: true,
-        // element: user ? <Organization /> : <Navigate to='/signin' />,
-        element: <Organization />,
+        element: user ? <Organization /> : <Navigate to='/signin' />,
       },
       {
         path: "/npos/request/:id",
         exact: true,
-        // element: user ? <Organization /> : <Navigate to='/signin' />,
-        element: <OrgRequests />,
+        element: user ? <OrgRequests /> : <Navigate to='/signin' />,
       },
       {
         path: "/npos/request",
         exact: true,
-        // element: user ? <Organization /> : <Navigate to='/signin' />,
-        element: <Organization requests />,
+        element: user ? <Organization requests /> : <Navigate to='/signin' />,
       },
       {
         path: "/campaign/create",
         exact: true,
-        // element: user ? <CreateCampaign /> : <Navigate to='/signin' />,
-        element: <CreateCampaign />,
+        element: user ? <CreateCampaign /> : <Navigate to='/signin' />,
       },
       {
         path: "/about",
         exact: true,
-        // element: user ? <Users /> : <Navigate to='/signin' />,
-        element: <Users />,
+        element: user ? <Users /> : <Navigate to='/signin' />,
       },
     ],
   },
-  // { path: "/signin", exact: true, element: user ? <Starter /> : <SignIn /> },
+  {
+    path: "/signin",
+    exact: true,
+    element: user ? <Navigate to='/' /> : <SignIn />,
+  },
 ];
 
 export default ThemeRoutes;
