@@ -70,16 +70,7 @@ const Header = () => {
       </div>
 
       <Collapse navbar isOpen={isOpen}>
-        <Nav className='me-auto' navbar>
-          <NavItem>
-            <a
-              href='https://tourism-web-project.netlify.app/'
-              className='nav-link'
-            >
-              User Website
-            </a>
-          </NavItem>
-        </Nav>
+        <Nav className='me-auto' navbar></Nav>
         <Dropdown isOpen={dropdownOpen} toggle={toggle}>
           <DropdownToggle color='dark'>
             <span

@@ -11,7 +11,7 @@ import { useSelector } from "react-redux";
 
 function CampaignTable() {
   const campaigns = useSelector((state) => state.Campaigns.campaigns);
-
+  console.log(campaigns);
   return (
     <>
       <Card>
@@ -43,7 +43,7 @@ function CampaignTable() {
                       <h6 className='mb-0'>{campaign.name}</h6>
                     </div>
                   </td>
-                  <td>1000</td>
+                  <td>{campaign.totalFundings || 500} $</td>
 
                   <td>{campaign.createdAt.substring(0, 10)}</td>
                 </tr>

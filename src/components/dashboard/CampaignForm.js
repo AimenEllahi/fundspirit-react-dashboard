@@ -9,7 +9,9 @@ const initialState = {
   name: "",
   description: "",
   image: "",
+  subtitle: "",
   tags: [],
+  goals: "",
 };
 
 function CampaignForm() {
@@ -31,8 +33,24 @@ function CampaignForm() {
     }
   };
 
+  //check all fields filled
+  const validateForm = () => {
+    return (
+      formData.name.length > 0 &&
+      formData.subtitle.length > 0 &&
+      formData.description.length > 0 &&
+      formData.goals.length > 0 &&
+      formData.tags.length > 0
+    );
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
+    if (!validateForm) {
+      console.log(formData.goals.length);
+      toast("All Fields Should Be Filled", { type: "error" });
+      return;
+    }
     createCampaign(formData)
       .then((response) => {
         toast("Campaign Created Successfully", { type: "success" });
@@ -49,7 +67,7 @@ function CampaignForm() {
         <Row>
           <Col md='8'>
             <FormGroup>
-              <Label for='campaignName'>Name</Label>
+              <Label for='campaignName'>Name *</Label>
               <Input
                 type='text'
                 name='campaignName'
@@ -64,7 +82,22 @@ function CampaignForm() {
           </Col>
           <Col md='8'>
             <FormGroup>
-              <Label for='campaignCategory'>Select Categories:</Label>
+              <Label for='CampaignSubtitle'>Subtitle *</Label>
+              <Input
+                type='text'
+                name='campaignSubtitle'
+                id='campaignSubtitle'
+                placeholder='Enter Name'
+                value={formData.subtitle}
+                onChange={(event) => {
+                  setFormData({ ...formData, subtitle: event.target.value });
+                }}
+              />
+            </FormGroup>
+          </Col>
+          <Col md='8'>
+            <FormGroup>
+              <Label for='campaignCategory'>Select Categories: *</Label>
               <div>
                 <FormGroup check inline>
                   <Label check>
@@ -149,7 +182,7 @@ function CampaignForm() {
           </Col>
           <Col md='8'>
             <FormGroup>
-              <Label for='campaignDescription'>Description</Label>
+              <Label for='campaignDescription'>Description *</Label>
               <Input
                 type='text'
                 name='campaignDescription'
@@ -164,7 +197,22 @@ function CampaignForm() {
           </Col>
           <Col md='8'>
             <FormGroup>
-              <Label for='campaignImage'>Image</Label>
+              <Label for='campaignGoals'>Goals *</Label>
+              <Input
+                type='text'
+                name='campaignGoals'
+                id='campaignGoals'
+                placeholder='Enter Goals'
+                value={formData.goals}
+                onChange={(event) => {
+                  setFormData({ ...formData, goals: event.target.value });
+                }}
+              />
+            </FormGroup>
+          </Col>
+          <Col md='8'>
+            <FormGroup>
+              <Label for='campaignImage'>Image *</Label>
               <Input
                 type='file'
                 name='campaignImage'

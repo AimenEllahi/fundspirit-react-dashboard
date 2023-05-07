@@ -5,13 +5,12 @@ const initialState = token ? { token, user } : {};
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case SIGNIN:
-      console.log(action.payload.user, "Here");
       if (action?.payload.user.role === "admin") {
-        console.log(action.payload.token);
         localStorage.setItem(
           "FundSpiritSecurityTokenAdmin",
           action?.payload.token
         );
+
         localStorage.setItem(
           "FundSpiritAdmin",
           JSON.stringify(action?.payload.user)

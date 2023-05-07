@@ -5,7 +5,7 @@ const SalesChart = () => {
   const chartoptions = {
     series: [
       {
-        name: "Earnings",
+        name: "Funding",
         data: [5, 16, 12, 28, 42, 49, 35, 39, 33, 38, 22, 12],
       },
     ],
@@ -45,9 +45,9 @@ const SalesChart = () => {
   return (
     <Card>
       <CardBody>
-        <CardTitle tag='h5'>Sales Summary</CardTitle>
+        <CardTitle tag='h5'>Funding Summary</CardTitle>
         <CardSubtitle className='text-muted' tag='h6'>
-          Yearly Sales Report
+          Yearly Funding Report
         </CardSubtitle>
         <Chart
           type='area'

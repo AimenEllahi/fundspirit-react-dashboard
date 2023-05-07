@@ -20,6 +20,7 @@ function OrgCard({ NPO }) {
 
   return (
     <Col md='3'>
+      
       <Card className='org-card'>
         <img
           style={{
@@ -35,6 +36,7 @@ function OrgCard({ NPO }) {
           alt='requester'
           className='org-card-logo'
         />
+  
         <CardBody>
           <div
             style={{
