@@ -62,17 +62,24 @@ function CampaignForm() {
   };
   return (
     <div>
+      <div className="banner" >
+      <img src="/Campaign-2.jpg" alt="Banner"  style={{
+        height: "300px",
+        width: "100%",
+        objectFit : "cover",
+              }}  />
+    </div>
       <h1>Create Campaign</h1>
       <Form>
         <Row>
-          <Col md='8'>
+          <Col md="6">
             <FormGroup>
-              <Label for='campaignName'>Name *</Label>
+              <Label for="campaignName">Name *</Label>
               <Input
-                type='text'
-                name='campaignName'
-                id='campaignName'
-                placeholder='Enter Name'
+                type="text"
+                name="campaignName"
+                id="campaignName"
+                placeholder="Enter Name"
                 value={formData.name}
                 onChange={(event) => {
                   setFormData({ ...formData, name: event.target.value });
@@ -80,14 +87,14 @@ function CampaignForm() {
               />
             </FormGroup>
           </Col>
-          <Col md='8'>
+          <Col md="6">
             <FormGroup>
-              <Label for='CampaignSubtitle'>Subtitle *</Label>
+              <Label for="campaignSubtitle">Subtitle *</Label>
               <Input
-                type='text'
-                name='campaignSubtitle'
-                id='campaignSubtitle'
-                placeholder='Enter Name'
+                type="text"
+                name="campaignSubtitle"
+                id="campaignSubtitle"
+                placeholder="Enter Subtitle"
                 value={formData.subtitle}
                 onChange={(event) => {
                   setFormData({ ...formData, subtitle: event.target.value });
@@ -95,9 +102,9 @@ function CampaignForm() {
               />
             </FormGroup>
           </Col>
-          <Col md='8'>
+          <Col md="6">
             <FormGroup>
-              <Label for='campaignCategory'>Select Categories: *</Label>
+              <Label for="campaignCategory">Select Categories: *</Label>
               <div>
                 <FormGroup check inline>
                   <Label check>
@@ -180,14 +187,14 @@ function CampaignForm() {
               </div>
             </FormGroup>
           </Col>
-          <Col md='8'>
+          <Col md="6">
             <FormGroup>
-              <Label for='campaignDescription'>Description *</Label>
+              <Label for="campaignDescription">Description *</Label>
               <Input
-                type='text'
-                name='campaignDescription'
-                id='campaignDescription'
-                placeholder='Enter Desription'
+                type="text"
+                name="campaignDescription"
+                id="campaignDescription"
+                placeholder="Enter Description"
                 value={formData.description}
                 onChange={(event) => {
                   setFormData({ ...formData, description: event.target.value });
@@ -195,14 +202,14 @@ function CampaignForm() {
               />
             </FormGroup>
           </Col>
-          <Col md='8'>
+          <Col md="6">
             <FormGroup>
-              <Label for='campaignGoals'>Goals *</Label>
+              <Label for="campaignGoals">Goals *</Label>
               <Input
-                type='text'
-                name='campaignGoals'
-                id='campaignGoals'
-                placeholder='Enter Goals'
+                type="text"
+                name="campaignGoals"
+                id="campaignGoals"
+                placeholder="Enter Goals"
                 value={formData.goals}
                 onChange={(event) => {
                   setFormData({ ...formData, goals: event.target.value });
@@ -210,14 +217,14 @@ function CampaignForm() {
               />
             </FormGroup>
           </Col>
-          <Col md='8'>
+          <Col md="6">
             <FormGroup>
-              <Label for='campaignImage'>Image *</Label>
+              <Label for="campaignImage">Image *</Label>
               <Input
-                type='file'
-                name='campaignImage'
-                id='campaignImage'
-                placeholder='Campaign Image'
+                type="file"
+                name="campaignImage"
+                id="campaignImage"
+                placeholder="Campaign Image"
                 value={formData.image}
                 onChange={(event) => {
                   setFormData({ ...formData, image: event.target.value });
