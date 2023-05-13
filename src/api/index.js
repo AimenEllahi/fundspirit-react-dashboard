@@ -36,4 +36,4 @@ export const createCampaign = (formdata) => {
 export const fetchNPOs = () => API.get("/npos");
 export const fetchNPORequests = () => API.get("/npos/requests", config);
 export const fetchNPO = (id) => API.get("/npos/" + id, config);
-export const approveNPO = (id) => API.put("/npos/approve/" + id, config);
+export const approveNPO = (id) => API.put("/npos/approve/" + id, {}, config);
