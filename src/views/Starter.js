@@ -75,7 +75,7 @@ const Starter = () => {
           <TopCards
             bg='bg-light-info text-into'
             title='Campaigns'
-            subtitle="Trips NPO's"
+            subtitle="Total NPO's"
             earning={npos.length}
             icon={<BiDonateHeart />}
           />
