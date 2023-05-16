@@ -18,24 +18,24 @@ const navigation = [
       {
         title: "View",
         href: "/campaigns",
-        icon: "bi bi-people",
+        icon: "bi bi-view-list",
       },
       {
         title: "Create",
         href: "/campaign/create",
-        icon: "bi bi-people",
+        icon: "bi bi-plus-circle",
       },
     ],
   },
   {
     title: "NPO's",
     href: "/npos",
-    icon: "bi bi-people",
+    icon: "bi bi-house-fill",
     subcategoryorg: [
       {
         title: "View",
         href: "/npos",
-        icon: "bi bi-people",
+        icon: "bi bi-view-list",
       },
       {
         title: "Requests",
@@ -53,7 +53,7 @@ const navigation = [
 
 const Sidebar = () => {
   const showMobilemenu = () => {
-    document.getElementById("sidebarArea").classList.toggle("showSidebar");
+    document.getElementById('sidebarArea').classList.toggle('showSidebar');
   };
   let location = useLocation();
 
@@ -76,67 +76,63 @@ const Sidebar = () => {
                 to={navi.href}
                 className={
                   location.pathname === navi.href
-                    ? "text-primary nav-link text-secondary py-3"
-                    : "nav-link text-secondary py-3"
+                    ? 'text-primary nav-link text-secondary py-3'
+                    : 'nav-link text-secondary py-3'
                 }
               >
                 <i className={navi.icon}></i>
                 <span className='ms-3 d-inline-block'>{navi.title}</span>
                 {navi.subcategoryorg && (
-                  <i className='bi bi-chevron-right ms-auto'>
-                    <ul className='sub-menu'>
-                      {navi.subcategoryorg.map((subnavi, index) => (
-                        <li
-                          key={index}
-                          style={{
-                            listStyleType: "none",
-                          }}
+                  <ul className='sub-menu'>
+                    {navi.subcategoryorg.map((subnavi, index) => (
+                      <li
+                        key={index}
+                        style={{
+                          listStyleType: 'none',
+                        }}
+                      >
+                        <Link
+                          to={subnavi.href}
+                          className={
+                            location.pathname === subnavi.href
+                              ? 'text-primary nav-link py-3'
+                              : 'nav-link text-secondary py-3'
+                          }
                         >
-                          <Link
-                            to={subnavi.href}
-                            className={
-                              location.pathname === subnavi.href
-                                ? "text-primary nav-link py-3"
-                                : "nav-link text-secondary py-3"
-                            }
-                          >
-                            <i className={subnavi.icon}></i>
-                            <span className='ms-3 d-inline-block'>
-                              {subnavi.title}
-                            </span>
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </i>
+                          <i className={subnavi.icon}></i>
+                          <span className='ms-3 d-inline-block'>
+                            {subnavi.title}
+                          </span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
                 )}
                 {navi.subcategorycampaign && (
-                  <i className='bi bi-chevron-right ms-auto'>
-                    <ul className='sub-menu'>
-                      {navi.subcategorycampaign.map((subnavi, index) => (
-                        <li
-                          key={index}
-                          style={{
-                            listStyleType: "none",
-                          }}
+                  <ul className='sub-menu'>
+                    {navi.subcategorycampaign.map((subnavi, index) => (
+                      <li
+                        key={index}
+                        style={{
+                          listStyleType: 'none',
+                        }}
+                      >
+                        <Link
+                          to={subnavi.href}
+                          className={
+                            location.pathname === subnavi.href
+                              ? 'text-primary nav-link py-3'
+                              : 'nav-link text-secondary py-3'
+                          }
                         >
-                          <Link
-                            to={subnavi.href}
-                            className={
-                              location.pathname === subnavi.href
-                                ? "text-primary nav-link py-3"
-                                : "nav-link text-secondary py-3"
-                            }
-                          >
-                            <i className={subnavi.icon}></i>
-                            <span className='ms-3 d-inline-block'>
-                              {subnavi.title}
-                            </span>
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </i>
+                          <i className={subnavi.icon}></i>
+                          <span className='ms-3 d-inline-block'>
+                            {subnavi.title}
+                          </span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
                 )}
               </Link>
             </NavItem>
