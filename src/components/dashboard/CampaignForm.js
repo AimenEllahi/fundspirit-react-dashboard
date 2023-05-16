@@ -46,15 +46,27 @@ function CampaignForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (!validateForm) {
-      console.log(formData.goals.length);
+
+    if (!validateForm()) {
       toast("All Fields Should Be Filled", { type: "error" });
       return;
     }
-    createCampaign(formData)
+
+    //trim the formData object
+    const trimmedFormData = {
+      name: formData.name,
+      subtitle: formData.subtitle,
+      description: formData.description,
+      image: "",
+      tags: formData.tags,
+      goals: formData.goals,
+    };
+
+    createCampaign(trimmedFormData)
       .then((response) => {
         toast("Campaign Created Successfully", { type: "success" });
         dispatch(getCampaigns());
+        setFormData(initialState);
       })
       .catch((error) => {
         toast("Something went wrong", { type: "error" });
@@ -183,11 +195,14 @@ function CampaignForm() {
           <Col md='8'>
             <FormGroup>
               <Label for='campaignDescription'>Description *</Label>
-              <Input
-                type='text'
+              <textarea
                 name='campaignDescription'
                 id='campaignDescription'
-                placeholder='Enter Desription'
+                className='form-control'
+                placeholder='Enter Description'
+                style={{
+                  height: "5rem",
+                }}
                 value={formData.description}
                 onChange={(event) => {
                   setFormData({ ...formData, description: event.target.value });
@@ -227,7 +242,7 @@ function CampaignForm() {
           </Col>
         </Row>
       </Form>
-      <Button color='primary' onClick={handleSubmit}>
+      <Button disabled={!validateForm()} color='primary' onClick={handleSubmit}>
         Submit
       </Button>
     </div>

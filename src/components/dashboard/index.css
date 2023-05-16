@@ -1,14 +1,17 @@
-.req-detail-container{
+.req-detail-container {
     margin-top: 3%;
+
+
 }
-.heading-container{
-    height: 50px; 
+
+.heading-container {
+    height: 50px;
     display: flex;
     flex-direction: row;
 }
 
 
-.heading-logo{
+.heading-logo {
     height: 40px;
     width: 40px;
     border-radius: 50%;
@@ -16,34 +19,37 @@
 
 }
 
-.req-detail-heading{
+.req-detail-heading {
     padding: 10px;
     font-size: 20px;
     font-weight: bold;
 }
 
-.req-detail-container{
+.req-detail-container {
     height: 100%;
 }
 
-.req-detail-logo{
+.req-detail-logo {
     width: 50%;
+    height: 20vh;
     border-radius: 5px;
 }
 
-.req-detail-text, .org-detail-text{
+.req-detail-text,
+.org-detail-text {
     width: 90%;
     padding: 5px;
 }
 
-.req-detail-text-info,.org-detail-text-info{
+.req-detail-text-info,
+.org-detail-text-info {
     background-color: rgb(233, 230, 230);
     border-radius: 5px;
     padding: 10px;
 
 }
 
-.org-detail-container{
+.org-detail-container {
     margin-top: 10px;
     height: 100%;
 }

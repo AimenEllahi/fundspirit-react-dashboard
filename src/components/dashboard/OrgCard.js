@@ -20,7 +20,6 @@ function OrgCard({ NPO }) {
 
   return (
     <Col md='3'>
-      
       <Card className='org-card'>
         <img
           style={{
@@ -32,11 +31,11 @@ function OrgCard({ NPO }) {
             marginTop: "30px",
             marginBottom: "10px",
           }}
-          src='https://via.placeholder.com/150'
+          src='/Images/Logo/sk.png'
           alt='requester'
           className='org-card-logo'
         />
-  
+
         <CardBody>
           <div
             style={{

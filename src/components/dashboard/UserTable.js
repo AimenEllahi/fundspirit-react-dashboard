@@ -15,7 +15,7 @@ function UserTable() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getUsers());
-  },[]);
+  }, []);
   const users = useSelector((state) => state.Users.users);
   console.log(users);
 
@@ -45,7 +45,7 @@ function UserTable() {
               <tbody>
                 {users?.map((user, index) => (
                   <tr key={index} className='border-top'>
-                    <td>{index}</td>
+                    <td>{index + 1}</td>
                     <td>
                       <div className='d-flex align-items-center p-2'>
                         <h6 className='mb-0'>{user.name}</h6>

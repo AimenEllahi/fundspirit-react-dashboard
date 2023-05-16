@@ -31,7 +31,7 @@ function RequestForm() {
     <div>
       <div fluid className='heading-container'>
         <img
-          src='https://via.placeholder.com/150'
+          src='/Images/Logo/sk.png'
           alt='requester'
           className='heading-logo'
         />
@@ -41,7 +41,7 @@ function RequestForm() {
         <Col md='6'>
           <div className='req-detail-container'>
             <img
-              src='https://via.placeholder.com/150'
+              src='/Images/shaukatk.png'
               alt='requester'
               className='req-detail-logo'
             />
@@ -85,24 +85,6 @@ function RequestForm() {
         <Col md='6'>
           <div className='org-detail-container'>
             <h5 className='org-detail-text-heading'>Organization Details</h5>
-            <h6 className='org-detail-text'>Backdrop</h6>
-            <img
-              style={{
-                borderRadius: "5px",
-              }}
-              src='https://via.placeholder.com/150'
-              alt='requester'
-              className='org-detail-backdrop'
-            />
-            {/*info about organization */}
-            <h6 className='org-detail-text'>Description</h6>
-            <p className='org-detail-text org-detail-text-info'>
-              {NPO?.description}
-            </p>
-            <h6 className='org-detail-text'>Address</h6>
-            <p className='org-detail-text org-detail-text-info'>
-              {NPO?.address}
-            </p>
             <h6 className='org-detail-text'>SECP</h6>
             <p className='org-detail-text org-detail-text-info'>
               {NPO?.secp.toUpperCase()}
@@ -114,6 +96,16 @@ function RequestForm() {
             <h6 className='org-detail-text'>Website</h6>
             <p className='org-detail-text org-detail-text-info'>
               {NPO?.website}
+            </p>
+            <h6 className='org-detail-text'>Address</h6>
+            <p className='org-detail-text org-detail-text-info'>
+              {NPO?.address}
+            </p>
+            <h6 className='org-detail-text'>Goals</h6>
+            <p className='org-detail-text org-detail-text-info'>{NPO?.goals}</p>
+            <h6 className='org-detail-text'>Description</h6>
+            <p className='org-detail-text org-detail-text-info'>
+              {NPO?.description}
             </p>
           </div>
         </Col>

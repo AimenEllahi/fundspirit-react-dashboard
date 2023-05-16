@@ -2,6 +2,7 @@ import React, { lazy, useEffect, useState } from "react";
 import { Container, Row } from "reactstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { getNPOs } from "../../Actions/NPOs.js";
+import { fetchNPOs, fetchNPORequests } from "../../api/index.js";
 const OrgCard = lazy(() => import("../../components/dashboard/OrgCard.js"));
 
 function Organization({ requests }) {
@@ -11,12 +12,19 @@ function Organization({ requests }) {
 
   useEffect(() => {
     if (requests) {
-      setNpoRequests(selector.npoRequests || []);
-      console.log("Setting Requests");
+      fetchNPORequests()
+        .then((res) => {
+          setNpoRequests(res.data || []);
+        })
+        .catch((err) => console.log(err));
     } else {
-      setNpos(selector.npos);
+      fetchNPOs()
+        .then((res) => {
+          setNpos(res.data || []);
+        })
+        .catch((err) => console.log(err));
     }
-  }, []);
+  }, [window.location.href]);
 
   return (
     <Container>
