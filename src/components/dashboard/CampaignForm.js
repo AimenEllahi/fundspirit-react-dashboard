@@ -16,6 +16,8 @@ const initialState = {
 
 function CampaignForm() {
   const [formData, setFormData] = useState(initialState);
+  const [selectedFile, setSelectedFile] = useState(null); //for image
+  const fd = new FormData();
   const dispatch = useDispatch();
 
   const handleCheckboxChange = (event) => {
@@ -33,6 +35,14 @@ function CampaignForm() {
     }
   };
 
+  const appendFormData = () => {
+    fd.append("name", formData.name);
+    fd.append("description", formData.description);
+    fd.append("subtitle", formData.subtitle);
+    fd.append("goals", formData.goals);
+    fd.append("tags", formData.tags);
+    fd.append("image", selectedFile);
+  };
   //check all fields filled
   const validateForm = () => {
     return (
@@ -40,7 +50,8 @@ function CampaignForm() {
       formData.subtitle.length > 0 &&
       formData.description.length > 0 &&
       formData.goals.length > 0 &&
-      formData.tags.length > 0
+      formData.tags.length > 0 &&
+      selectedFile
     );
   };
 
@@ -51,22 +62,14 @@ function CampaignForm() {
       toast("All Fields Should Be Filled", { type: "error" });
       return;
     }
+    appendFormData();
 
-    //trim the formData object
-    const trimmedFormData = {
-      name: formData.name,
-      subtitle: formData.subtitle,
-      description: formData.description,
-      image: "",
-      tags: formData.tags,
-      goals: formData.goals,
-    };
-
-    createCampaign(trimmedFormData)
+    createCampaign(fd)
       .then((response) => {
         toast("Campaign Created Successfully", { type: "success" });
         dispatch(getCampaigns());
         setFormData(initialState);
+        setSelectedFile(null);
       })
       .catch((error) => {
         toast("Something went wrong", { type: "error" });
@@ -74,24 +77,17 @@ function CampaignForm() {
   };
   return (
     <div>
-      <div className="banner" >
-      <img src="/Campaign-2.jpg" alt="Banner"  style={{
-        height: "300px",
-        width: "100%",
-        objectFit : "cover",
-              }}  />
-    </div>
       <h1>Create Campaign</h1>
       <Form>
         <Row>
-          <Col md="6">
+          <Col md='12'>
             <FormGroup>
-              <Label for="campaignName">Name *</Label>
+              <Label for='campaignName'>Name *</Label>
               <Input
-                type="text"
-                name="campaignName"
-                id="campaignName"
-                placeholder="Enter Name"
+                type='text'
+                name='campaignName'
+                id='campaignName'
+                placeholder='Enter Name'
                 value={formData.name}
                 onChange={(event) => {
                   setFormData({ ...formData, name: event.target.value });
@@ -99,14 +95,14 @@ function CampaignForm() {
               />
             </FormGroup>
           </Col>
-          <Col md="6">
+          <Col md='12'>
             <FormGroup>
-              <Label for="campaignSubtitle">Subtitle *</Label>
+              <Label for='campaignSubtitle'>Subtitle *</Label>
               <Input
-                type="text"
-                name="campaignSubtitle"
-                id="campaignSubtitle"
-                placeholder="Enter Subtitle"
+                type='text'
+                name='campaignSubtitle'
+                id='campaignSubtitle'
+                placeholder='Enter Subtitle'
                 value={formData.subtitle}
                 onChange={(event) => {
                   setFormData({ ...formData, subtitle: event.target.value });
@@ -114,9 +110,9 @@ function CampaignForm() {
               />
             </FormGroup>
           </Col>
-          <Col md="6">
+          <Col md='12'>
             <FormGroup>
-              <Label for="campaignCategory">Select Categories: *</Label>
+              <Label for='campaignCategory'>Select Categories: *</Label>
               <div>
                 <FormGroup check inline>
                   <Label check>
@@ -199,7 +195,7 @@ function CampaignForm() {
               </div>
             </FormGroup>
           </Col>
-          <Col md="6">
+          <Col md='12'>
             <FormGroup>
               <Label for='campaignDescription'>Description *</Label>
               <textarea
@@ -217,14 +213,14 @@ function CampaignForm() {
               />
             </FormGroup>
           </Col>
-          <Col md="6">
+          <Col md='12'>
             <FormGroup>
-              <Label for="campaignGoals">Goals *</Label>
+              <Label for='campaignGoals'>Goals *</Label>
               <Input
-                type="text"
-                name="campaignGoals"
-                id="campaignGoals"
-                placeholder="Enter Goals"
+                type='text'
+                name='campaignGoals'
+                id='campaignGoals'
+                placeholder='Enter Goals'
                 value={formData.goals}
                 onChange={(event) => {
                   setFormData({ ...formData, goals: event.target.value });
@@ -232,18 +228,15 @@ function CampaignForm() {
               />
             </FormGroup>
           </Col>
-          <Col md="6">
+          <Col md='12'>
             <FormGroup>
-              <Label for="campaignImage">Image *</Label>
+              <Label for='campaignImage'>Image *</Label>
               <Input
-                type="file"
-                name="campaignImage"
-                id="campaignImage"
-                placeholder="Campaign Image"
-                value={formData.image}
-                onChange={(event) => {
-                  setFormData({ ...formData, image: event.target.value });
-                }}
+                id='exampleFile'
+                name='file'
+                type='file'
+                onChange={(e) => setSelectedFile(e.target.files[0])}
+                required
               />
             </FormGroup>
           </Col>
