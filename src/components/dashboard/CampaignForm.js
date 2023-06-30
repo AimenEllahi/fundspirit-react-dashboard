@@ -192,6 +192,110 @@ function CampaignForm() {
                     Other
                   </Label>
                 </FormGroup>
+                <FormGroup check inline>
+    <Label check>
+      <Input
+        type='checkbox'
+        id='povertyAlleviation'
+        name='campaignCategory'
+        value='Poverty Alleviation'
+        checked={formData.tags.includes("Poverty Alleviation")}
+        onChange={handleCheckboxChange}
+      />{" "}
+      Poverty Alleviation
+    </Label>
+  </FormGroup>
+  <FormGroup check inline>
+    <Label check>
+      <Input
+        type='checkbox'
+        id='disasterRelief'
+        name='campaignCategory'
+        value='Disaster Relief'
+        checked={formData.tags.includes("Disaster Relief")}
+        onChange={handleCheckboxChange}
+      />{" "}
+      Disaster Relief
+    </Label>
+  </FormGroup>
+  <FormGroup check inline>
+    <Label check>
+      <Input
+        type='checkbox'
+        id='womenEmpowerment'
+        name='campaignCategory'
+        value='Women Empowerment'
+        checked={formData.tags.includes("Women Empowerment")}
+        onChange={handleCheckboxChange}
+      />{" "}
+      Women Empowerment
+    </Label>
+  </FormGroup>
+  <FormGroup check inline>
+    <Label check>
+      <Input
+        type='checkbox'
+        id='childrensRights'
+        name='campaignCategory'
+        value="Children's Rights"
+        checked={formData.tags.includes("Children's Rights")}
+        onChange={handleCheckboxChange}
+      />{" "}
+      Children's Rights
+    </Label>
+  </FormGroup>
+  <FormGroup check inline>
+    <Label check>
+      <Input
+        type='checkbox'
+        id='elderlyCare'
+        name='campaignCategory'
+        value='Elderly Care'
+        checked={formData.tags.includes("Elderly Care")}
+        onChange={handleCheckboxChange}
+      />{" "}
+      Elderly Care
+    </Label>
+  </FormGroup>
+  <FormGroup check inline>
+    <Label check>
+      <Input
+        type='checkbox'
+        id='communityDevelopment'
+        name='campaignCategory'
+        value='Community Development'
+        checked={formData.tags.includes("Community Development")}
+        onChange={handleCheckboxChange}
+      />{" "}
+      Community Development
+    </Label>
+  </FormGroup>
+  <FormGroup check inline>
+    <Label check>
+      <Input
+        type='checkbox'
+        id='mentalHealth'
+        name='campaignCategory'
+        value='Mental Health'
+        checked={formData.tags.includes("Mental Health")}
+        onChange={handleCheckboxChange}
+      />{" "}
+      Mental Health
+    </Label>
+  </FormGroup>
+  <FormGroup check inline>
+    <Label check>
+      <Input
+        type='checkbox'
+        id='refugeesImmigration'
+        name='campaignCategory'
+        value='Refugees and Immigration'
+        checked={formData.tags.includes("Refugees and Immigration")}
+        onChange={handleCheckboxChange}
+      />{" "}
+      Refugees and Immigration
+    </Label>
+  </FormGroup>
               </div>
             </FormGroup>
           </Col>
