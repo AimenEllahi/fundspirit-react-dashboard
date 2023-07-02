@@ -4,9 +4,10 @@ import "./index.css";
 import { useParams } from "react-router-dom";
 import { fetchNPO, approveNPO } from "../../api";
 import { toast } from "react-toastify";
-
+import { useNavigate } from "react-router-dom";
 function RequestForm() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [NPO, setNPO] = useState();
 
   useEffect(() => {
@@ -14,18 +15,24 @@ function RequestForm() {
       setNPO(res.data);
     });
   }, []);
-  const approve = () => {
+  const handleApprove = () => {
     approveNPO(id)
       .then((res) => {
         toast("NPO Approved", {
           type: "success",
         });
+
+        navigate("/npos");
       })
       .catch((err) => {
         toast("Error While Approving ", {
           type: "error",
         });
       });
+  };
+
+  const handleReject = () => {
+    navigate("/npos");
   };
   return (
     <div>
@@ -71,11 +78,15 @@ function RequestForm() {
                   }}
                   className='req-detail-btn'
                   color='primary'
-                  onClick={approve}
+                  onClick={handleApprove}
                 >
                   Approve
                 </Button>
-                <Button className='req-detail-btn' color='danger'>
+                <Button
+                  onClick={handleReject}
+                  className='req-detail-btn'
+                  color='danger'
+                >
                   Reject
                 </Button>
               </div>
